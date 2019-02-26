@@ -1,4 +1,3 @@
-/* global window, document */
 /* eslint no-console: off */
 /* eslint no-var: off */
 /* eslint no-param-reassign: ["error", { "props": false }] */
@@ -47,6 +46,8 @@ discs.attr({
 discs.attr({
   fill: 'R(150, 150, 100)#fff-#000',
 });
+
+debugger;
 
 p.select('path').animate({ stroke: '#f00' }, 1000);
 
