@@ -47,8 +47,6 @@ discs.attr({
   fill: 'R(150, 150, 100)#fff-#000',
 });
 
-debugger;
-
 p.select('path').animate({ stroke: '#f00' }, 1000);
 
 Snap.load('mascot.svg', (f) => {

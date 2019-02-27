@@ -4,6 +4,12 @@
   "description": "a snap.svg demo",
   "main": "dist/main.js",
   "dependencies": {
+    "snapsvg": "^0.4.0",
+    "three": "^0.101.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.5",
+    "webpack-dev-server": "^3.2.1",
     "@babel/core": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
@@ -16,12 +22,6 @@
     "eslint-loader": "^2.1.2",
     "eslint-plugin-html": "^5.0.3",
     "eslint-plugin-import": "^2.16.0",
-    "snapsvg": "^0.5.1",
-    "three": "^0.101.1",
-    "webpack": "^4.29.5",
-    "webpack-dev-server": "^3.2.1"
-  },
-  "devDependencies": {
     "imports-loader": "^0.8.0",
     "webpack-cli": "^3.2.3"
   },
