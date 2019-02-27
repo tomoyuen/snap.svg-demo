@@ -1,4 +1,3 @@
-/* global window, document */
 /* eslint no-console: off */
 /* eslint no-var: off */
 /* eslint no-param-reassign: ["error", { "props": false }] */

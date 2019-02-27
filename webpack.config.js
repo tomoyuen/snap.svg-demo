@@ -1,48 +1,40 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
-  },
-  resolveLoader: {
-    root: path.join(__dirname, 'node_modules'),
+    filename: 'build.js',
   },
   module: {
-    preLoaders: [
+    rules: [
       {
         test: /\.js$/,
-        loader: 'eslint',
+        loader: 'eslint-loader',
+        enforce: 'pre',
         include: path.resolve(__dirname, './src'),
-        exclude: /node_modules/
-      }
-    ],
-    loaders: [
+        exclude: /node_modules/,
+      },
       {
         test: require.resolve('snapsvg'),
-        loader: 'imports?this=>window,fix=>module.exports=0'
+        loader: 'imports-loader?this=>window,fix=>module.exports=0',
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         include: path.resolve(__dirname, './src'),
         exclude: /node_modules/,
-        query: {
-          presets: ['es2015'],
-          plugins: ['transform-runtime'],
-        }
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file',
+        loader: 'file-loader',
         query: {
-          name: '[name].[ext]?[hash]'
-        }
-      }
-    ]
+          name: '[name].[ext]?[hash]',
+        },
+      },
+    ],
   },
   devServer: {
     historyApiFallback: true,
@@ -52,16 +44,9 @@ module.exports = {
   devtool: '#eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-  ]
+  ],
 }
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-  ])
+  module.exports.devtool = '#source-map';
 }
