@@ -1,2 +1,2 @@
-# the-aviator
+# Snap.svg Demo
 a animation scene
